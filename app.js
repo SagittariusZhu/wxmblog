@@ -83,7 +83,7 @@ function detail(id){
     if(_G.post[id].body != undefined){
       $('#container').html(_G.post[id].body);
       $('title').html(_G.post[id].title);
-      toggleDuoshuoComments('#container', id);
+      // toggleDuoshuoComments('#container', id);
       highlight();
       return;
     }
