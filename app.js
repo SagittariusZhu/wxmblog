@@ -3,6 +3,7 @@ function index(page){
     var page = parseInt(page) || 1;
     window._G = window._G || {post: {}, postList: {}};
     $('title').html(_config['blog_name']);
+    $('a.blog_title').html(_config['blog_name']);
     if(_G.postList[page] != undefined){
       $('#container').html(_G.postList[page]);
       return;
