@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <title>用于演示的博客</title>
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.bootcss.com/font-awesome/3.0.2/css/font-awesome.min.css" rel="stylesheet">
     <link rel='stylesheet' href='css/GitHub2.css' type='text/css'/>
     <link rel='stylesheet' href='css/style.css' type='text/css'/>
     <link rel="stylesheet" href="css/highlight.css">
@@ -23,7 +25,7 @@
 <script type="text/ractive" id="listTpl">
     <ul class="postlist">
         {{#posts}}
-        <li class="postlist"><a href="#post/{{number}}">{{title}}</a>
+        <li class="postlist"><a href="#post/{{number}}"><i class="icon-{{state}}"></i>  {{title}}</a>
         <span class="datetime">
         <!--<img src="{{user.avatar_url}}&s=18" class="avatar">.-->
         <a href="{{user.html_url}}">{{user.login}}</a>.

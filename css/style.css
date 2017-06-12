@@ -41,6 +41,13 @@ h2{
   float: right;
 }
 
+.icon-open:before {
+    content: "\f096";
+}
+.icon-closed:before {
+    content: "\f046";
+}
+
 @media only screen and (min-width: 600px) {
     #container {
       border: 1px solid #ccc;
