@@ -75,17 +75,21 @@ function toggleDuoshuoComments(container, id){
 }
 
 function toggleComments(id) {
+    var beforeHtml = $('#container').html();
     $.ajax({
         url:"https://api.github.com/repos/"+_config['owner']+"/"+_config['repo']+"/issues/" + id + "/comments",
         data:{
             // access_token:_config['access_token']
         },
         beforeSend:function(){
+
           $('#container').html('<center><img src="loading.gif" alt="loading" class="loading"></center>');
         },
         success:function(data){
+            $('#container').html(beforeHtml);
+            $('#container').append("<div id=\"comments\"></div>");
             var ractive = new Ractive({
-                 el: "#container",
+                 el: "#comments",
                  template: '#commentsTpl',
                  data: {comments: data}
             });
