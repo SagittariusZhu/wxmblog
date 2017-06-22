@@ -74,6 +74,25 @@ function toggleDuoshuoComments(container, id){
     jQuery(container).append(el);
 }
 
+function toggleComments(id) {
+    $.ajax({
+        url:"https://api.github.com/repos/"+_config['owner']+"/"+_config['repo']+"/issues/" + id + "/comments",
+        data:{
+            // access_token:_config['access_token']
+        },
+        beforeSend:function(){
+          $('#container').html('<center><img src="loading.gif" alt="loading" class="loading"></center>');
+        },
+        success:function(data){
+            var ractive = new Ractive({
+                 el: "#container",
+                 template: '#commentsTpl',
+                 data: {post: data}
+            });
+        }
+    }); 
+}
+
 function detail(id){
     if(!window._G){
       window._G = {post: {}, postList: {}};
@@ -83,7 +102,7 @@ function detail(id){
     if(_G.post[id].body != undefined){
       $('#container').html(_G.post[id].body);
       $('title').html(_G.post[id].title);
-      // toggleDuoshuoComments('#container', id);
+      toggleComments(id);
       highlight();
       return;
     }
