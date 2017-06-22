@@ -87,7 +87,7 @@ function toggleComments(id) {
             var ractive = new Ractive({
                  el: "#container",
                  template: '#commentsTpl',
-                 data: {post: data}
+                 data: {comments: data}
             });
         }
     }); 
